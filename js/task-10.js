@@ -23,17 +23,31 @@ const refs = {
 // console.dir(test)
 
 // refs.inputNumberEl.addEventListener('input', onInput)
+let lastBoxMeasurement = 30;
+
+console.log(lastBoxMeasurement)
+
+
+
 function createBoxes(amount) { 
   
   console.log(amount);
   const divArray = [];
+
+  // if (lastBoxMeasurement != 0) {
+  //   const loopStaringRatio = lastBoxMeasurement
+  // }
+  // else { const loopStaringRatio = 30; }
+
+ console.log(lastBoxMeasurement)
   
   for (let i = 0; i < amount; i += 1) {
+   
     divArray[i] = document.createElement('div')
-    divArray[i].style.width = `${30 + i*10 }px`
+    divArray[i].style.width = `${lastBoxMeasurement + i*10  }px`
     // console.log(divArray[i].style.width = `${30 + i*10 }px`)
 
-    divArray[i].style.height = `${30 + i*10 }px`
+    divArray[i].style.height = `${lastBoxMeasurement + i*10  }px`
     divArray[i].style.backgroundColor = getRandomHexColor()
 
     console.log(divArray[i])
@@ -48,25 +62,28 @@ function createBoxes(amount) {
   console.log(divArray)
   refs.boxesEl.append(...divArray)
   console.log(refs.boxesEl)
-  // const divArrayFinal = []
-  // divArray.length = amount;
-  // for (const box of divArray) {
-    // box = document.createElement('div');
-    // box.offsetWidth += 10;
-    // box.offsetHeight += 10;
-    // box.style.backgroundColor = getRandomHexColor()
-  // }
+  console.log(refs.boxesEl.lastElementChild.style.width)
+  lastBoxMeasurement = Number(refs.boxesEl.lastElementChild.style.width.replace(/\D/g, "")) + 10;
+console.log(lastBoxMeasurement)
+
 }
+ 
+
+
+
+
+
+
 refs.createButtonEl.addEventListener('click', () => {
   const divAmount = refs.inputNumberEl.value;
   createBoxes(divAmount);
 })
  
 function destroyBoxes() {
+  // refs.inputNumberEl.reset;
   refs.boxesEl.innerHTML = "";
-  refs.inputNumberEl.reset()
-
  }
+
 refs.destroyButtonEl.addEventListener('click', destroyBoxes)
 
 
