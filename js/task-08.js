@@ -8,7 +8,9 @@ function onSubmit(event) {
     // console.log(formEl.elements.email.value.length)
     //  console.log(formEl.elements.password.value.length)
     if (formEl.elements.email.value.length === 0 || formEl.elements.password.value.length === 0) 
-    { alert('Hey you! All fields must be filled in :)') }
+    {
+        alert('Hey you! All fields must be filled in :)')
+return    }
     
     
     const email = formEl.elements.email.value;

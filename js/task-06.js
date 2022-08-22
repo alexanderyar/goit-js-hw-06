@@ -2,7 +2,7 @@ const refs = {
     inputEl: document.querySelector('#validation-input'),
 
 }
-console.dir(refs.inputEl.dataset.length)
+// console.dir(refs.inputEl.dataset.length)
 
 refs.inputEl.addEventListener('blur', onBlur)
 
@@ -16,9 +16,10 @@ function onBlur(event) {
         refs.inputEl.classList.remove('valid')
     }
     
-    console.log(event.currentTarget.value.length)
-    console.log(refs.inputEl.dataset.length)
-    console.log(event.currentTarget.value.length == refs.inputEl.dataset.length)
+    // console.log(event.currentTarget.value.length)
+    // console.log(refs.inputEl.dataset.length)
+    // console.log(event.currentTarget.value.length === refs.inputEl.dataset.length)
+    // console.log(event.currentTarget.value.length == refs.inputEl.dataset.length)
 }
 
 
